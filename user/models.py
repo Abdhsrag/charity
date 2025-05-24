@@ -14,7 +14,7 @@ class User(models.Model):
         ('donor', 'Donor'),
     ]
     Type = models.CharField(max_length=10, choices=TYPE_CHOICES)
-    Bdate = models.DateTimeField()
+    Bdate = models.DateField(null=True, blank=True)
     Regist_date = models.DateTimeField(auto_now_add=True)
     Facebook_url = models.TextField(default=None, null=True)
     Country = models.CharField(max_length=100)
