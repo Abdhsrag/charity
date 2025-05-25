@@ -4,7 +4,7 @@ from django.db import models
 class Project_image(models.Model):
     ID = models.AutoField(primary_key=True)
     url = models.TextField()
-    project_id = models.ForeignKey('project.Project', on_delete=models.CASCADE)
+    project_id = models.ForeignKey('project.Project', on_delete=models.CASCADE, null=True , blank=True)
 
     def __str__(self):
         return f"{self.url}"
