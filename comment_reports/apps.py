@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ProjectReportConfig(AppConfig):
+class CommentsReportConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'project_report'
+    name = 'comment_reports'

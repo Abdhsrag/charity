@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from project_report.models import ProjectReport
+from project_reports.models import ProjectReport
 from .serializers import ProjectReportSerializer
 
 class ProjectReportViewSet(viewsets.ModelViewSet):

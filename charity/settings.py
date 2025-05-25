@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'project_report.apps.ProjectReportConfig',
+    'project_reports.apps.ProjectReportConfig',
+    'comment_reports.apps.CommentsReportConfig',
 ]
 
 MIDDLEWARE = [
