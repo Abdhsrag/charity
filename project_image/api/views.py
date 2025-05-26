@@ -2,6 +2,8 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from project_image.models import Project_image
 from .serializers import ProjectImageSerializer
+from rest_framework.decorators import action
+
 
 class ProjectImageViewSet(viewsets.ModelViewSet):
     queryset = Project_image.objects.all()
@@ -39,4 +41,14 @@ class ProjectImageViewSet(viewsets.ModelViewSet):
         return Response(
             {"message": "Project image deleted successfully"},
             status=status.HTTP_204_NO_CONTENT
+        )
+
+
+    @action(detail=False, methods=['get'], url_path='for-project/(?P<project_id>[^/.]+)')
+    def by_project(self, request, project_id=None):
+        images = Project_image.objects.filter(project_id=project_id)
+        serializer = self.get_serializer(images, many=True)
+        return Response(
+            {"message": "Project images retrieved successfully", "data": serializer.data},
+            status=status.HTTP_200_OK
         )
