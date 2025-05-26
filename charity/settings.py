@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'project_image.apps.ProjectImageConfig',
     'project_reports.apps.ProjectReportConfig',
     'comment_reports.apps.CommentsReportConfig',
+    'donations',
+    'project_tag',
+
 ]
 
 MIDDLEWARE = [
