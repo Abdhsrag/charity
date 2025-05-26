@@ -25,4 +25,7 @@ urlpatterns = [
 
     path('api/project-images/', include('project_image.urls')),
     path('api/comments/', include('comments.urls')),
+    path('api/project-reports/', include('project_reports.api.urls')),
+    path('api/comment-reports/', include('comment_reports.api.urls')),
+
 ]

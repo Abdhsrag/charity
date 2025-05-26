@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'category.apps.CategoryConfig',
     'comments.apps.CommentsConfig',
     'project_image.apps.ProjectImageConfig',
+    'project_reports.apps.ProjectReportConfig',
+    'comment_reports.apps.CommentsReportConfig',
 ]
 
 MIDDLEWARE = [
