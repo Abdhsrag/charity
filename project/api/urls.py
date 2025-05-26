@@ -3,6 +3,6 @@ from .views import ProjectViewSet
 
 
 router=DefaultRouter()
-router.register(r'project',ProjectViewSet)
+router.register(r'',ProjectViewSet)
 
 urlpatterns=router.urls
