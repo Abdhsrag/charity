@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'category.apps.CategoryConfig',
     'user.apps.UserConfig',
+    'tag.apps.TagConfig',
 ]
 
 MIDDLEWARE = [
