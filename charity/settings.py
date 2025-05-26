@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'category.apps.CategoryConfig',
     'user.apps.UserConfig',
     'tag.apps.TagConfig',
+    'category.apps.CategoryConfig',
+    'comments.apps.CommentsConfig',
+    'project_image.apps.ProjectImageConfig',
 ]
 
 MIDDLEWARE = [
