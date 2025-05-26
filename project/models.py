@@ -1,6 +1,6 @@
 from django.db import models
-# from category.models import*
-# from user.models import *
+from category.models import Category
+from user.models import User
 
 
 # Create your models here.
@@ -12,8 +12,8 @@ class Project(models.Model):
     target=models.CharField(max_length=50)
     S_time=models.DateTimeField()
     E_time=models.DateTimeField()
-    # category_id=models.ForeignKey(category, on_delete=models.CASCADE, null=True,blank=True)
-    # user_id=models.ForeignKey(user, on_delete=models.CASCADE, null=True,blank=True)
+    category_id=models.ForeignKey(Category, on_delete=models.CASCADE, null=True,blank=True)
+    user_id=models.ForeignKey(User, on_delete=models.CASCADE, null=True,blank=True)
 
 
 

@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'category.apps.CategoryConfig',
     'user.apps.UserConfig',
     'tag.apps.TagConfig',
     'category.apps.CategoryConfig',
@@ -48,7 +47,6 @@ INSTALLED_APPS = [
     'comment_reports.apps.CommentsReportConfig',
     'donations',
     'project_tag',
-
     'project.apps.ProjectConfig',
     'rate.apps.RateConfig',
 ]
