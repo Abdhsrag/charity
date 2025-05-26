@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'donations',
     'project_tag',
 
+    'project.apps.ProjectConfig',
+    'rate.apps.RateConfig',
 ]
 
 MIDDLEWARE = [
@@ -93,7 +95,6 @@ DATABASES = {
         'HOST': 'localhost',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

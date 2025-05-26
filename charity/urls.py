@@ -30,4 +30,6 @@ urlpatterns = [
     path('api/project-reports/', include('project_reports.api.urls')),
     path('api/comment-reports/', include('comment_reports.api.urls')),
 
+    path('api/project/',include('project.api.urls')),
+    path('api/rate/',include('rate.api.urls')),
 ]
