@@ -1,6 +1,8 @@
 from django.db import models
 # from category.models import*
 # from user.models import *
+
+
 # Create your models here.
 class Project(models.Model):
     id=models.IntegerField(primary_key=True)

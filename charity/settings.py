@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ne^*h1!#h^%xc^m5^80nvq@%zd4f^5*ac8p1ddxx&()s0z%)7(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'project.apps.ProjectConfig',
+    'tag.apps.TagConfig',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +75,17 @@ WSGI_APPLICATION = 'charity.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'charity_db',
+#         'USER':'postgres',
+#         'PASSWORD':'123',
+#         'HOST':'localhost',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -81,9 +93,9 @@ DATABASES = {
         'USER':'postgres',
         'PASSWORD':'123',
         'HOST':'localhost',
+        'PORT':'5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
