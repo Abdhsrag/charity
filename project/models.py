@@ -12,8 +12,8 @@ class Project(models.Model):
     target=models.CharField(max_length=50)
     S_time=models.DateTimeField()
     E_time=models.DateTimeField()
-    category_id=models.IntegerField(null=True)
-    user_id=models.IntegerField(null=True)
+    # category_id=models.ForeignKey(category, on_delete=models.CASCADE, null=True,blank=True)
+    # user_id=models.ForeignKey(user, on_delete=models.CASCADE, null=True,blank=True)
 
 
 
