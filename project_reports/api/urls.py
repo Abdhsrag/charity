@@ -1,7 +1,12 @@
-from rest_framework.routers import DefaultRouter
-from .views import ProjectReportViewSet
+from django.urls import path
+from .views import (
+    ProjectReportListCreateView,
+    ProjectReportDetailView,
+    ProjectReportsByProjectIdView,
+)
 
-router = DefaultRouter()
-router.register(r'project-reports', ProjectReportViewSet)
-
-urlpatterns = router.urls
+urlpatterns = [
+    path('', ProjectReportListCreateView.as_view(), name='project-report-list-create'),
+    path('<int:pk>/', ProjectReportDetailView.as_view(), name='project-report-detail'),
+    path('by-project/<int:project_id>/', ProjectReportsByProjectIdView.as_view(), name='project-reports-by-project-id'),
+]
