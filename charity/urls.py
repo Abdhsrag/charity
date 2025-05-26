@@ -24,4 +24,5 @@ urlpatterns = [
     path('tag/', include('tag.urls')),
 
     path('api/project-images/', include('project_image.urls')),
+    path('api/comments/', include('comments.urls')),
 ]
