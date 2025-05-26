@@ -22,8 +22,8 @@ urlpatterns = [
     path('api/donation/', include('donations.urls')),
     path('api/project_tags/', include('project_tag.urls')),
     path('api/categories/', include('category.urls')),
-    path('user/', include('user.urls')),
-    path('tag/', include('tag.urls')),
+    path('api/user/', include('user.api.urls')),
+    path('api/tag/', include('tag.api.urls')),
 
     path('api/project-images/', include('project_image.urls')),
     path('api/comments/', include('comments.urls')),
