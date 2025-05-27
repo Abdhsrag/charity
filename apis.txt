@@ -9,6 +9,7 @@
 - **Project API**
   - List/Create: `http://localhost:8000/api/project/`
   - Retrieve/Update/Delete: `http://localhost:8000/api/project/{id}/`
+  - Get a list by latest 5 projects: `http://localhost:8000/api/project/projects_latest/`
 
 - **Rate API**
   - List/Create: `http://localhost:8000/api/rate/`
