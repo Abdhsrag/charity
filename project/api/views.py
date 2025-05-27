@@ -32,7 +32,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
             self.get_queryset(),
             title=title,
             tag=tag,
-            tag_field='projecttag__tag_id__name'
+            tag_field='projecttag__tag_id__name' #projecttag__tag_id__name is for the tag field in ProjectTag model to make the search work & it's a django orm lookup
         )
         serializer = self.get_serializer(queryset, many=True)
         return Response({"message": "Search results", "data": serializer.data}, status=status.HTTP_200_OK)
