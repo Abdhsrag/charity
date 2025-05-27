@@ -17,7 +17,7 @@
 - **Project Image API**
   - List/Create: `http://localhost:8000/api/project-images/`
   - Retrieve/Update/Delete: `http://localhost:8000/api/project-images/project-images/{id}/`
-  To get all images for project :'http://localhost:8000/api/project-images/for-project/{id}/'
+  To get all images for project :`http://localhost:8000/api/project-images/for-project/{id}/`
 
 - **Comments API**
   - List/Create: `http://localhost:8000/api/comments/`
