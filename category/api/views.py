@@ -28,3 +28,5 @@ class CategoryViewSet(viewsets.ModelViewSet):
                 {"detail": "Not found."},
                 status=status.HTTP_404_NOT_FOUND
             )
+
+# get all projects by catrgory

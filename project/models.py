@@ -14,6 +14,7 @@ class Project(models.Model):
     E_time=models.DateTimeField()
     category_id=models.ForeignKey(Category, on_delete=models.CASCADE, null=True,blank=True)
     user_id=models.ForeignKey(User, on_delete=models.CASCADE, null=True,blank=True)
+    is_fetured=models.BooleanField(default=False)
 
 
 
