@@ -53,4 +53,9 @@
   - List/Create: `http://localhost:8000/api/project_tags/`
   - Retrieve/Update/Delete: `http://localhost:8000/api/project_tags/{id}/`
 
+- **Search by tag & title**
+ -Search by title: GET `http://localhost:8000/api/project/search/?title=YourTitle`
+ -Search by tag: GET `http://localhost:8000/api/project/search/?tag=YourTagName`
+ -Search by both title and tag: GET `http://localhost:8000/api/project/search/?title=YourTitle&tag=YourTagName`
+
 
