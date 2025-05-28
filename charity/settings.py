@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'project_tag',
     'project.apps.ProjectConfig',
     'rate.apps.RateConfig',
+   
+
 ]
 
 MIDDLEWARE = [
@@ -89,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'charity_db',
         'USER': 'postgres',
-        'PASSWORD': '123',
+        'PASSWORD': '1',
         'HOST': 'localhost',
     }
 }
@@ -138,7 +140,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ]
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+  
 }
