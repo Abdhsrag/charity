@@ -21,8 +21,16 @@
   To get all images for project :'http://localhost:8000/api/project-images/for-project/{id}/
 
 - **Comments API**
-  - List/Create: `http://localhost:8000/api/comments/`
+  - List/Create:
+        for all :`http://localhost:8000/api/comments/`
+        for comments only: `http://localhost:8000/api/comments/top_level/`
+        for replies only: `http://localhost:8000/api/comments/replies/`
   - Retrieve/Update/Delete: `http://localhost:8000/api/comments/{id}/`
+        To edit a reply:
+            Send a PUT or PATCH request to /api/comments/{id}/ where {id} is the reply's ID.
+        To delete a reply:
+            Send a DELETE request to /api/comments/{id}/ where {id} is the reply's ID.
+
   To create a reply to a comment, use the following:
 	HTTP Method: POST
 	URL: /api/comments/

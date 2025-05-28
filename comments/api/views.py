@@ -1,13 +1,12 @@
 from rest_framework import viewsets, status
+from rest_framework.decorators import action
 from rest_framework.response import Response
-# from rest_framework.permissions import IsAuthenticated
 from comments.models import Comments
 from .serializers import CommentSerializer
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comments.objects.all()
     serializer_class = CommentSerializer
-    # permission_classes = [IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -41,3 +40,15 @@ class CommentViewSet(viewsets.ModelViewSet):
             {"message": "Comment updated", "data": serializer.data},
             status=status.HTTP_200_OK
         )
+
+    @action(detail=False, methods=['get'])
+    def top_level(self, request):
+        comments = Comments.objects.filter(parent__isnull=True)
+        serializer = self.get_serializer(comments, many=True)
+        return Response(serializer.data)
+
+    @action(detail=False, methods=['get'])
+    def replies(self, request):
+        replies = Comments.objects.filter(parent__isnull=False)
+        serializer = self.get_serializer(replies, many=True)
+        return Response(serializer.data)
