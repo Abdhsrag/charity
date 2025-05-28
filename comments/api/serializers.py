@@ -6,7 +6,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comments
-        fields = ['content', 'date', 'parent', 'replies']
+        fields = ['content', 'date', 'parent', 'replies', 'user_id', 'project_id']
 
     def get_replies(self, obj):
         return [
