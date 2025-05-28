@@ -18,6 +18,6 @@ class User(models.Model):
     Regist_date = models.DateTimeField(auto_now_add=True)
     Facebook_url = models.TextField(default=None, null=True)
     Country = models.CharField(max_length=100)
-
+    is_active = models.BooleanField(default=False)
     def __str__(self):
         return f"{self.Fname} {self.Lname}"
