@@ -27,6 +27,12 @@
         for replies only: `http://localhost:8000/api/comments/replies/`
         for comments by project: `http://localhost:8000/api/comments/by-project/{project_id}/`
         for comments by user: `http://localhost:8000/api/comments/by-user/{user_id}/`
+
+        NOTE: to POST u need  to send {
+                                          "content": "Nice project!",
+                                          "user_id": 2,
+                                          "project_id": 5
+                                        }
   - Retrieve/Update/Delete: `http://localhost:8000/api/comments/{id}/`
         To edit a reply:
             Send a PUT or PATCH request to /api/comments/{id}/ where {id} is the reply's ID.
@@ -40,6 +46,8 @@
 	{
 	  "content": "This is a reply",
 	  "parent": 1
+	  "user_id": 2,
+      "project_id": 5
 	}
 
 - **Project Reports API**
