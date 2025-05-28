@@ -52,3 +52,9 @@ class CommentViewSet(viewsets.ModelViewSet):
         replies = Comments.objects.filter(parent__isnull=False)
         serializer = self.get_serializer(replies, many=True)
         return Response(serializer.data)
+
+    @action(detail=False, methods=['get'], url_path='by-project/(?P<project_id>[^/.]+)')
+    def by_project(self, request, project_id=None):
+        comments = Comments.objects.filter(project_id=project_id, parent__isnull=True)
+        serializer = self.get_serializer(comments, many=True)
+        return Response(serializer.data)
