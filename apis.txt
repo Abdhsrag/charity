@@ -26,6 +26,7 @@
         for comments only: `http://localhost:8000/api/comments/top_level/`
         for replies only: `http://localhost:8000/api/comments/replies/`
         for comments by project: `http://localhost:8000/api/comments/by-project/{project_id}/`
+        for comments by user: `http://localhost:8000/api/comments/by-user/{user_id}/`
   - Retrieve/Update/Delete: `http://localhost:8000/api/comments/{id}/`
         To edit a reply:
             Send a PUT or PATCH request to /api/comments/{id}/ where {id} is the reply's ID.
