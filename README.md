@@ -53,7 +53,7 @@
   - Retrieve/Update/Delete: `http://localhost:8000/api/project_tags/{id}/`
 
 - **User Donations API**
-  - List/Create: `http://localhost:8000/api/donation/user/{id}/`
+  - List: `http://localhost:8000/api/donation/user/{id}/`
 
 - **User Projects API**
-  - List/Create: `http://localhost:8000/api/project/user/{id}/`
+  - List: `http://localhost:8000/api/project/user/{id}/`
