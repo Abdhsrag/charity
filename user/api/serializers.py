@@ -2,15 +2,17 @@ from rest_framework import serializers
 from user.models import User
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.hashers import make_password
+from rest_framework import serializers
+from user.models import User
+from django.contrib.auth.hashers import check_password
 
-# For general User representation (e.g., in ViewSets)
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
 
 
-# For registration with password validation and confirmation
+#  registration with password validation and confirmation
 class RegisterSerializer(serializers.ModelSerializer):
     Pass = serializers.CharField(write_only=True, validators=[validate_password])
     confirm_password = serializers.CharField(write_only=True)
@@ -36,11 +38,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         # Create user with inactive status
         user = User.objects.create(is_active=False, **validated_data)
         return user
-# user/api/serializers.py
 
-from rest_framework import serializers
-from user.models import User
-from django.contrib.auth.hashers import check_password
 
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()

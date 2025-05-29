@@ -27,10 +27,6 @@ from rest_framework_simplejwt.tokens import RefreshToken
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
-
-
-
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
     queryset = User.objects.all()
@@ -53,10 +49,6 @@ class ActivateUserView(APIView):
         user.is_active = True
         user.save()
         return Response({"detail": "Account activated successfully."})
-# user/api/views.py
-
-
-
 class LoginView(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
