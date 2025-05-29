@@ -4,7 +4,8 @@ class User(models.Model):
     ID = models.AutoField(primary_key=True)
     Fname = models.CharField(max_length=100)
     Lname = models.CharField(max_length=100)
-    Email = models.CharField(max_length=100)
+    Email = models.CharField(max_length=100, unique=True)
+
     Mphone = models.CharField(max_length=20)
     image = models.ImageField(upload_to='user/imgs', blank=True, null=True)
     Pass = models.CharField(max_length=100)
@@ -21,3 +22,6 @@ class User(models.Model):
     is_active = models.BooleanField(default=False)
     def __str__(self):
         return f"{self.Fname} {self.Lname}"
+    @property
+    def id(self):
+        return self.ID

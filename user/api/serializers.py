@@ -36,3 +36,27 @@ class RegisterSerializer(serializers.ModelSerializer):
         # Create user with inactive status
         user = User.objects.create(is_active=False, **validated_data)
         return user
+# user/api/serializers.py
+
+from rest_framework import serializers
+from user.models import User
+from django.contrib.auth.hashers import check_password
+
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
+
+    def validate(self, attrs):
+        email = attrs.get('email')
+        password = attrs.get('password')
+
+        user = User.objects.filter(Email=email).first()
+        if not user:
+            raise serializers.ValidationError("Invalid email or password.")
+        if not user.is_active:
+            raise serializers.ValidationError("Account is not activated.")
+        if not check_password(password, user.Pass):
+            raise serializers.ValidationError("Invalid email or password.")
+
+        attrs['user'] = user
+        return attrs
