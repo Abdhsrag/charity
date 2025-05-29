@@ -66,6 +66,7 @@
 - **Categories API**
   - List/Create: `http://localhost:8000/api/categories/`
   - Retrieve/Update/Delete: `http://localhost:8000/api/categories/{id}/`
+  - List all projects in category: `http://localhost:8000/api/categories/{id}/projects/`
 
 - **Project Tags API**
   - List/Create: `http://localhost:8000/api/project_tags/`

@@ -2,6 +2,9 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from category.models import Category
 from .serializers import CategorySerializer
+from project.models import Project
+from rest_framework.decorators import action
+from project.api.serializers import ProjectSerializer
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
@@ -30,3 +33,9 @@ class CategoryViewSet(viewsets.ModelViewSet):
             )
 
 # get all projects by catrgory
+    @action(detail=True, methods=['get'])
+    def projects(self, request, pk=None):
+        category = self.get_object()
+        projects = Project.objects.filter(category_id=category)
+        serializer = ProjectSerializer(projects, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
