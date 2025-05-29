@@ -5,15 +5,13 @@ from user.models import User
 
 # Create your models here.
 class Project(models.Model):
-    id=models.IntegerField(primary_key=True)
     title=models.CharField(max_length=50)
     details=models.TextField()
-    category=models.CharField(max_length=50)
     target=models.CharField(max_length=50)
-    S_time=models.DateTimeField()
-    E_time=models.DateTimeField()
-    category_id=models.ForeignKey(Category, on_delete=models.CASCADE, null=True,blank=True)
-    user_id=models.ForeignKey(User, on_delete=models.CASCADE, null=True,blank=True)
+    S_time=models.DateTimeField(auto_now_add=True)
+    E_time=models.DateField()
+    category_id=models.ForeignKey(Category, on_delete=models.CASCADE,blank=True)
+    user_id=models.ForeignKey(User, on_delete=models.CASCADE,blank=True)
 
 
 

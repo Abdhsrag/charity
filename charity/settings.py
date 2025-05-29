@@ -45,12 +45,10 @@ INSTALLED_APPS = [
     'project_image.apps.ProjectImageConfig',
     'project_reports.apps.ProjectReportConfig',
     'comment_reports.apps.CommentsReportConfig',
-    'donations',
+    'donations.apps.DonationsConfig',
     'project_tag',
     'project.apps.ProjectConfig',
     'rate.apps.RateConfig',
-   
-
 ]
 
 MIDDLEWARE = [
@@ -91,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'charity_db',
         'USER': 'postgres',
-        'PASSWORD': '1',
+        'PASSWORD': '123',
         'HOST': 'localhost',
     }
 }
