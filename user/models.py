@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.timezone import now
 class User(models.Model):
     ID = models.AutoField(primary_key=True)
     Fname = models.CharField(max_length=100)
@@ -20,8 +20,15 @@ class User(models.Model):
     Facebook_url = models.TextField(default=None, null=True)
     Country = models.CharField(max_length=100)
     is_active = models.BooleanField(default=False)
+    last_login = models.DateTimeField(default=now)
     def __str__(self):
         return f"{self.Fname} {self.Lname}"
     @property
     def id(self):
         return self.ID
+    def get_email_field_name(self):
+        return 'Email'
+    @property
+    def password(self):
+        return self.Pass
+

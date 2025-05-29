@@ -2,10 +2,9 @@ from rest_framework import serializers
 from user.models import User
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.hashers import make_password
-from rest_framework import serializers
-from user.models import User
-from django.contrib.auth.hashers import check_password
 
+from django.contrib.auth.hashers import check_password
+  
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -58,3 +57,26 @@ class LoginSerializer(serializers.Serializer):
 
         attrs['user'] = user
         return attrs
+    
+
+
+
+
+class RequestPasswordResetSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+    def validate_email(self, value):
+        if not User.objects.filter(Email=value).exists():
+            raise serializers.ValidationError("User with this email does not exist.")
+        return value
+
+
+class SetNewPasswordSerializer(serializers.Serializer):
+    new_password = serializers.CharField(write_only=True, validators=[validate_password])
+    confirm_password = serializers.CharField(write_only=True)
+
+    def validate(self, attrs):
+        if attrs['new_password'] != attrs['confirm_password']:
+            raise serializers.ValidationError("Passwords must match.")
+        return attrs
+    
