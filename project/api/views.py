@@ -20,7 +20,6 @@ from charity.utils.search import search_by_title_or_tag
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
 from django.db.models import Sum
 from django.shortcuts import get_object_or_404
 
@@ -106,8 +105,6 @@ class ProjectViewSet(viewsets.ModelViewSet):
 
         except Project.DoesNotExist:
             return Response({"error": "Project not found."}, status=status.HTTP_404_NOT_FOUND)
-
-    permission_classes = [IsAuthenticated]
 
     @action(detail=True, methods=['post'], url_path='cancel')
     def cancel_project(self, request, pk=None):
