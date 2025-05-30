@@ -9,6 +9,7 @@
 - **Project API**
   - List/Create: `http://localhost:8000/api/project/`
   - Retrieve/Update/Delete: `http://localhost:8000/api/project/{id}/`
+  - Get a list by latest 5 projects: `http://localhost:8000/api/project/projects_latest/`
 
 - **Rate API**
   - List/Create: `http://localhost:8000/api/rate/`
@@ -16,12 +17,28 @@
 
 - **Project Image API**
   - List/Create: `http://localhost:8000/api/project-images/`
-  - Retrieve/Update/Delete: `http://localhost:8000/api/project-images/project-images/{id}/`
+  - Retrieve/Update/Delete: `http://localhost:8000/api/project-images/{id}/`
   To get all images for project :'http://localhost:8000/api/project-images/for-project/{id}/
 
 - **Comments API**
-  - List/Create: `http://localhost:8000/api/comments/`
+  - List/Create:
+        for all :`http://localhost:8000/api/comments/`
+        for comments only: `http://localhost:8000/api/comments/top_level/`
+        for replies only: `http://localhost:8000/api/comments/replies/`
+        for comments by project: `http://localhost:8000/api/comments/by-project/{project_id}/`
+        for comments by user: `http://localhost:8000/api/comments/by-user/{user_id}/`
+
+        NOTE: to POST u need  to send {
+                                          "content": "Nice project!",
+                                          "user_id": 2,
+                                          "project_id": 5
+                                        }
   - Retrieve/Update/Delete: `http://localhost:8000/api/comments/{id}/`
+        To edit a reply:
+            Send a PUT or PATCH request to /api/comments/{id}/ where {id} is the reply's ID.
+        To delete a reply:
+            Send a DELETE request to /api/comments/{id}/ where {id} is the reply's ID.
+
   To create a reply to a comment, use the following:
 	HTTP Method: POST
 	URL: /api/comments/
@@ -29,6 +46,8 @@
 	{
 	  "content": "This is a reply",
 	  "parent": 1
+	  "user_id": 2,
+      "project_id": 5
 	}
 
 - **Project Reports API**
@@ -47,9 +66,15 @@
 - **Categories API**
   - List/Create: `http://localhost:8000/api/categories/`
   - Retrieve/Update/Delete: `http://localhost:8000/api/categories/{id}/`
+  - List all projects in category: `http://localhost:8000/api/categories/{id}/projects/`
 
 - **Project Tags API**
   - List/Create: `http://localhost:8000/api/project_tags/`
   - Retrieve/Update/Delete: `http://localhost:8000/api/project_tags/{id}/`
+
+- **Search by tag & title**
+ -Search by title: GET `http://localhost:8000/api/project/search/?title=YourTitle`
+ -Search by tag: GET `http://localhost:8000/api/project/search/?tag=YourTagName`
+ -Search by both title and tag: GET `http://localhost:8000/api/project/search/?title=YourTitle&tag=YourTagName`
 
 
