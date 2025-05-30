@@ -5,7 +5,6 @@ from user.models import User
 
 # Create your models here.
 class Project(models.Model):
-    id=models.IntegerField(primary_key=True)
     title=models.CharField(max_length=50)
     details=models.TextField()
     category=models.CharField(max_length=50)
