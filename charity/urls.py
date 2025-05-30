@@ -21,19 +21,17 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/user/', include('user.api.urls')),
     path('api/donation/', include('donations.urls')),
     path('api/project_tags/', include('project_tag.urls')),
     path('api/categories/', include('category.urls')),
-    path('api/user/', include('user.api.urls')),
     path('api/tag/', include('tag.api.urls')),
-
     path('api/project-images/', include('project_image.urls')),
     path('api/comments/', include('comments.urls')),
     path('api/project-reports/', include('project_reports.api.urls')),
     path('api/comment-reports/', include('comment_reports.api.urls')),
-
-    path('api/project/',include('project.api.urls')),
-    path('api/rate/',include('rate.api.urls')),
+    path('api/project/', include('project.api.urls')),
+    path('api/rate/', include('rate.api.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

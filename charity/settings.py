@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     'project_tag',
     'project.apps.ProjectConfig',
     'rate.apps.RateConfig',
+        'django_celery_results',
+   
+
 ]
 
 MIDDLEWARE = [
@@ -89,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'charity_db',
         'USER': 'postgres',
-        'PASSWORD': '123',
+        'PASSWORD': '1',
         'HOST': 'localhost',
     }
 }
@@ -138,7 +141,17 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ]
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    
+  
 }
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'django-db'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = '3la2.a7med60@gmail.com'
+EMAIL_HOST_PASSWORD = 'dibh qjvr uftc qsyd'

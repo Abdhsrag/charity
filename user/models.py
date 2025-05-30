@@ -1,10 +1,11 @@
 from django.db import models
-
+from django.utils.timezone import now
 class User(models.Model):
     ID = models.AutoField(primary_key=True)
     Fname = models.CharField(max_length=100)
     Lname = models.CharField(max_length=100)
-    Email = models.CharField(max_length=100)
+    Email = models.CharField(max_length=100, unique=True)
+
     Mphone = models.CharField(max_length=20)
     image = models.ImageField(upload_to='user/imgs', blank=True, null=True)
     Pass = models.CharField(max_length=100)
@@ -18,6 +19,16 @@ class User(models.Model):
     Regist_date = models.DateTimeField(auto_now_add=True)
     Facebook_url = models.TextField(default=None, null=True)
     Country = models.CharField(max_length=100)
-
+    is_active = models.BooleanField(default=False)
+    last_login = models.DateTimeField(default=now)
     def __str__(self):
         return f"{self.Fname} {self.Lname}"
+    @property
+    def id(self):
+        return self.ID
+    def get_email_field_name(self):
+        return 'Email'
+    @property
+    def password(self):
+        return self.Pass
+

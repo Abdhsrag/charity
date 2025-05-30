@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Donations
+from donations.models import Donations
 
 class DonationsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Donations
-        fields = '__all__'
-
+        fields = ['id', 'amount', 'date', 'user', 'project']
+        read_only_fields = ['date']
