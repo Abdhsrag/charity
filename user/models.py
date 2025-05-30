@@ -21,6 +21,9 @@ class User(models.Model):
     Country = models.CharField(max_length=100)
     is_active = models.BooleanField(default=False)
     last_login = models.DateTimeField(default=now)
+    state = models.BooleanField(default=True)
+
+
     def __str__(self):
         return f"{self.Fname} {self.Lname}"
     @property

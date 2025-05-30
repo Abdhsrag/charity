@@ -32,8 +32,21 @@ from django.contrib.auth.hashers import make_password  #  hashing new password
 
 # List/Create/Update users 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = User.objects.all() 
     serializer_class = UserSerializer
+
+    def get_queryset(self):
+        return User.objects.filter(state=True) 
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        instance.state = False
+        instance.save()
+        return Response({"detail": "User deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
+
+
+
+
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
     queryset = User.objects.all()
