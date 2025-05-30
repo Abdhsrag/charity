@@ -17,17 +17,16 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Project',
             fields=[
-                ('id', models.IntegerField(primary_key=True, serialize=False)),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=50)),
                 ('details', models.TextField()),
-                ('category', models.CharField(max_length=50)),
                 ('target', models.CharField(max_length=50)),
-                ('S_time', models.DateTimeField()),
-                ('E_time', models.DateTimeField()),
+                ('S_time', models.DateTimeField(auto_now_add=True)),
+                ('E_time', models.DateField()),
+                ('category_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='category.category')),
+                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='user.user')),
                 ('is_featured', models.BooleanField(default=False)),
                 ('is_cancled', models.BooleanField(default=False)),
-                ('category_id', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='category.category')),
-                ('user_id', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='user.user')),
             ],
         ),
     ]

@@ -1,9 +1,9 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .api import DonationsViewSet
+from category.api.views import CategoryViewSet
 
 router = DefaultRouter()
-router.register(r'', DonationsViewSet)
+router.register(r'', CategoryViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

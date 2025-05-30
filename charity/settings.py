@@ -45,12 +45,12 @@ INSTALLED_APPS = [
     'project_image.apps.ProjectImageConfig',
     'project_reports.apps.ProjectReportConfig',
     'comment_reports.apps.CommentsReportConfig',
-    'donations',
+    'donations.apps.DonationsConfig',
     'project_tag',
     'project.apps.ProjectConfig',
     'rate.apps.RateConfig',
         'django_celery_results',
-   
+
 
 ]
 
@@ -92,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'charity_db',
         'USER': 'postgres',
-        'PASSWORD': '1',
+        'PASSWORD': '123',
         'HOST': 'localhost',
     }
 }
@@ -144,8 +144,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-    
-  
+
+
 }
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'django-db'
