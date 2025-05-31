@@ -135,7 +135,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'charity_db',
         'USER': 'postgres',
-        'PASSWORD': '1',
+        'PASSWORD': '123',
         'HOST': 'localhost',
     }
 }
