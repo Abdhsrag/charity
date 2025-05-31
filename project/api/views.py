@@ -1,31 +1,14 @@
-from rest_framework import viewsets
-from project.models import Project
-from rest_framework.decorators import action
-from rest_framework.response import Response
-from project.models import Project
-from .serializers import ProjectSerializer
 from .permissions import IsOwnerOrAdmin
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.decorators import action
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.decorators import action
-from rest_framework.response import Response
 from project_image.models import Project_image
 from rate.models import Rate
 from django.db.models import Avg
-from rest_framework.decorators import action
-from rest_framework.response import Response
-from rest_framework import status
 from charity.utils.search import search_by_title_or_tag
-
-
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.db.models import Sum
 from django.shortcuts import get_object_or_404
-
 from project.models import Project
 from donations.models import Donations
 from project.api.serializers import ProjectSerializer
@@ -72,13 +55,13 @@ class ProjectViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['get'], url_path='allfeatured')
     def get_active_projects(self, request):
-        active_projects = Project.objects.filter(is_fetured=True)
+        active_projects = Project.objects.filter(is_featured=True)
         serializer = self.get_serializer(active_projects, many=True)
         return Response(serializer.data)
 
     @action(detail=False, methods=['get'], url_path='fivefeatured')
     def get_featured_projects(self, request):
-        featured_projects = Project.objects.filter(is_fetured=True)[:5]
+        featured_projects = Project.objects.filter(is_featured=True)[:5]
         serializer = self.get_serializer(featured_projects, many=True)
         return Response(serializer.data)
 
@@ -117,16 +100,16 @@ class ProjectViewSet(viewsets.ModelViewSet):
     def cancel_project(self, request, pk=None):
         project = get_object_or_404(Project, pk=pk)
 
-        if project.owner != request.user:
+        if project.user_id != request.user:
             return Response({"error": "You are not the owner"}, status=status.HTTP_403_FORBIDDEN)
 
         total_donation = Donations.objects.filter(project=project).aggregate(total=Sum('amount'))['total'] or 0
-        donation_percentage = (total_donation / project.total_target) * 100
+        donation_percentage = (total_donation / float(project.target)) * 100
 
         if donation_percentage >= 25:
             return Response({"error": "Project cannot be canceled it is receiving 25% or more"}, status=status.HTTP_400_BAD_REQUEST)
 
-        project.is_cancled = True
+        project.is_cancle = True
         project.save()
 
         return Response({"message": "Project is canceled"}, status=status.HTTP_200_OK)
