@@ -42,6 +42,19 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 # User Registration View
+
+    def get_queryset(self):
+        return User.objects.filter(state=True)
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        instance.state = False
+        instance.save()
+        return Response({"detail": "User deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
+
+
+
+
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
     queryset = User.objects.all()
@@ -53,6 +66,7 @@ class RegisterView(generics.CreateAPIView):
         token = secrets.token_urlsafe(20)
         send_verification_email.delay(user.email, uid, token)
 
+        send_verification_email.delay(user.Email, uid, token)
 
 # Account Activation View
 class ActivateUserView(APIView):

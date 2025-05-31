@@ -7,13 +7,14 @@ from user.models import User
 class Project(models.Model):
     title=models.CharField(max_length=50)
     details=models.TextField()
-    category=models.CharField(max_length=50)
     target=models.CharField(max_length=50)
-    S_time=models.DateTimeField()
-    E_time=models.DateTimeField()
-    category_id=models.ForeignKey(Category, on_delete=models.CASCADE, null=True,blank=True)
-    user_id=models.ForeignKey(User, on_delete=models.CASCADE, null=True,blank=True)
+    S_time=models.DateTimeField(auto_now_add=True)
+    E_time=models.DateField()
+    category_id=models.ForeignKey(Category, on_delete=models.CASCADE,blank=True)
+    user_id=models.ForeignKey(User, on_delete=models.CASCADE,blank=True)
 
+    is_featured=models.BooleanField(default=False)
+    is_cancle=models.BooleanField(default=False)
 
 
     def __str__(self):
