@@ -56,4 +56,7 @@
   - List: `http://localhost:8000/api/donation/user/{id}/`
 
 - **User Projects API**
-  - List: `http://localhost:8000/api/project/user/{id}/`
+  - List: `http://localhost:8000/api/project/project/user/{id}/`
+ 
+- **Project Donations API**
+  - List: `http://localhost:8000/api/donation/by-project/{id}/`
