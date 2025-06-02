@@ -71,7 +71,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
             project = Project.objects.get(pk=pk)
 
             # مشروع مشابه بنفس التصنيف
-            similar_projects = Project.objects.filter(category=project.category).exclude(pk=project.pk)
+            similar_projects = Project.objects.filter(category_id=project.category_id).exclude(pk=project.pk)
             similar_serialized = self.get_serializer(similar_projects, many=True).data
 
             # صور المشروع

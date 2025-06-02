@@ -19,37 +19,37 @@ BASE_MEDIA_PATH = 'media/'  # عدل المسار هنا لمجلد media عند
 
 users_data = [
     {
-        "ID": 1,
-        "Fname": "Ahmed",
-        "Lname": "Ali",
-        "Email": "ahmed.ali@example.com",
-        "Mphone": "+201234567890",
-        "Pass": "hashed_password_1",
-        "Type": "admin",
-        "Bdate": "1985-04-12",
-        "Facebook_url": "https://facebook.com/ahmed.ali",
-        "Country": "Egypt",
+        "id": 1,
+        "fname": "Ahmed",
+        "lname": "Ali",
+        "email": "ahmed.ali@example.com",
+        "mphone": "+201234567890",
+        "password": "hashed_password_1",
+        "type": "admin",
+        "bdate": "1985-04-12",
+        "facebook_url": "https://facebook.com/ahmed.ali",
+        "country": "Egypt",
         "image_path": os.path.join(BASE_MEDIA_PATH, "user/imgs/one.jpg"),
     },
     {
-        "ID": 2,
-        "Fname": "Sara",
-        "Lname": "Hassan",
-        "Email": "sara.hassan@example.com",
-        "Mphone": "+201098765432",
-        "Pass": "hashed_password_2",
-        "Type": "owner",
-        "Bdate": "1990-08-20",
-        "Facebook_url": "https://facebook.com/sara.hassan",
-        "Country": "Egypt",
+        "id": 2,
+        "fname": "Sara",
+        "lname": "Hassan",
+        "email": "sara.hassan@example.com",
+        "mphone": "+201098765432",
+        "password": "hashed_password_2",
+        "type": "owner",
+        "bdate": "1990-08-20",
+        "facebook_url": "https://facebook.com/sara.hassan",
+        "country": "Egypt",
         "image_path": os.path.join(BASE_MEDIA_PATH, "user/imgs/two.jpg"),
     },
 ]
 
 categories_data = [
-    {"ID": 1, "name": "Education","description":"test description"},
-    {"ID": 2, "name": "Health" ,"description":"test description"},
-    {"ID": 3, "name": "Environment" ,"description":"test description"},
+    {"id": 1, "name": "Education","description":"test description"},
+    {"id": 2, "name": "Health" ,"description":"test description"},
+    {"id": 3, "name": "Environment" ,"description":"test description"},
 ]
 
 projects_data = [
@@ -62,7 +62,7 @@ projects_data = [
         "S_time": "2025-06-01T08:00:00Z",
         "E_time": "2025-12-31T23:59:59Z",
         "user_id": 2,
-        "is_fetured": True,
+        "is_featured": True,
     },
     {
         "id": 2,
@@ -73,7 +73,7 @@ projects_data = [
         "S_time": "2025-05-15T08:00:00Z",
         "E_time": "2025-11-15T23:59:59Z",
         "user_id": 2,
-        "is_fetured": False,
+        "is_featured": False,
     },
     {
         "id": 3,
@@ -84,7 +84,7 @@ projects_data = [
         "S_time": "2025-07-01T08:00:00Z",
         "E_time": "2025-10-31T23:59:59Z",
         "user_id": 1,
-        "is_fetured": True,
+        "is_featured": True,
     },
 ]
 
@@ -92,7 +92,7 @@ project_image_path = os.path.join(BASE_MEDIA_PATH, "user/imgs/one.jpg")
 
 # إضافة Categories
 for cat in categories_data:
-    obj, created = Category.objects.get_or_create(ID=cat["ID"], defaults={"name": cat["name"]})
+    obj, created = Category.objects.get_or_create(id=cat["id"], defaults={"name": cat["name"]})
     if created:
         print(f"Category {obj.name} created.")
     else:
@@ -101,17 +101,17 @@ for cat in categories_data:
 # إضافة Users مع الصور
 for u in users_data:
     user_obj, created = User.objects.get_or_create(
-        ID=u["ID"],
+        id=u["id"],
         defaults={
-            "Fname": u["Fname"],
-            "Lname": u["Lname"],
-            "Email": u["Email"],
-            "Mphone": u["Mphone"],
-            "Pass": u["Pass"],
-            "Type": u["Type"],
-            "Bdate": parse_datetime(u["Bdate"] + "T00:00:00Z"),
-            "Facebook_url": u["Facebook_url"],
-            "Country": u["Country"],
+            "fname": u["fname"],
+            "lname": u["lname"],
+            "email": u["email"],
+            "mphone": u["mphone"],
+            "password": u["password"],
+            "type": u["type"],
+            "bdate": parse_datetime(u["bdate"] + "T00:00:00Z"),
+            "facebook_url": u["facebook_url"],
+            "country": u["country"],
         }
     )
     # تحميل الصورة فقط إذا تم الإنشاء
@@ -119,27 +119,27 @@ for u in users_data:
         with open(u["image_path"], "rb") as img_file:
             user_obj.image.save(os.path.basename(u["image_path"]), File(img_file))
         user_obj.save()
-        print(f"User {user_obj.Fname} created with image.")
+        print(f"User {user_obj.fname} created with image.")
     else:
-        print(f"User {user_obj.Fname} already exists.")
+        print(f"User {user_obj.fname} already exists.")
 
 # إضافة Projects
 # إضافة Projects
 for p in projects_data:
-    category_instance = Category.objects.get(ID=p["category_id"])
-    user_instance = User.objects.get(ID=p["user_id"])
+    category_instance = Category.objects.get(id=p["category_id"])
+    user_instance = User.objects.get(id=p["user_id"])
 
     project_obj, created = Project.objects.get_or_create(
         id=p["id"],  # تأكد أن هذا يتوافق مع اسم الحقل الأساسي في نموذج Project
         defaults={
             "title": p["title"],
             "details": p["details"],
-            "category": category_instance,
+            "category_id": category_instance,
             "target": p["target"],
             "S_time": parse_datetime(p["S_time"]),
             "E_time": parse_datetime(p["E_time"]),
             "user_id": user_instance,
-            "is_fetured": p["is_fetured"],
+            "is_featured": p["is_featured"],
         }
     )
     if created:
