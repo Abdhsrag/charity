@@ -42,7 +42,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     country = models.CharField(max_length=100)
 
     is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=True)
     last_login = models.DateTimeField(default=now)
 
     USERNAME_FIELD = 'email'

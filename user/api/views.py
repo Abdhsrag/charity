@@ -44,11 +44,11 @@ class UserViewSet(viewsets.ModelViewSet):
 # User Registration View
 
     def get_queryset(self):
-        return User.objects.filter(state=True)
+        return User.objects.filter(is_staff=True)
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
-        instance.state = False
+        instance.is_staff = False
         instance.save()
         return Response({"detail": "User deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
 

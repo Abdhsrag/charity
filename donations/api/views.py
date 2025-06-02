@@ -13,3 +13,9 @@ class DonationsViewSet(viewsets.ModelViewSet):
         donations = Donations.objects.filter(project_id=project_id)
         serializer = self.get_serializer(donations, many=True)
         return Response(serializer.data)
+
+    @action(detail=False, methods=['get'], url_path='user/(?P<user_id>[^/.]+)')
+    def donations_by_user(self, request, user_id=None):
+        donations = Donations.objects.filter(user_id=user_id)
+        serializer = self.get_serializer(donations, many=True)
+        return Response(serializer.data)

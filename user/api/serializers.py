@@ -13,7 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = '__all__'
         extra_kwargs = {
-            'state': {'read_only': True}
+            'is_staff': {'read_only': True}
         }
 
 
