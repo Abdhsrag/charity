@@ -1,62 +1,88 @@
-- **User API**
-  - List/Create: `http://localhost:8000/api/user/`
-  - Retrieve/Update/Delete: `http://localhost:8000/api/user/{id}/`
+# Charity Crowdfunding Platform
 
-- **Tag API**
-  - List/Create: `http://localhost:8000/api/tag/`
-  - Retrieve/Update/Delete: `http://localhost:8000/api/tag/{id}/`
+This is a Django REST Framework-based web app for crowdfunding. It allows users in Egypt to create projects, accept donations, and manage fundraising campaigns.
 
-- **Project API**
-  - List/Create: `http://localhost:8000/api/project/`
-  - Retrieve/Update/Delete: `http://localhost:8000/api/project/{id}/`
+---
 
-- **Rate API**
-  - List/Create: `http://localhost:8000/api/rate/`
-  - Retrieve/Update/Delete: `http://localhost:8000/api/rate/{id}/`
+## Tech Stack
 
-- **Project Image API**
-  - List/Create: `http://localhost:8000/api/project-images/`
-  - Retrieve/Update/Delete: `http://localhost:8000/api/project-images/project-images/{id}/`
-  To get all images for project :`http://localhost:8000/api/project-images/for-project/{id}/`
+* **Backend:** Django 5.2.1 + Django REST Framework
+* **Database:** PostgreSQL
+* **Auth:** JWT (SimpleJWT)
+* **Async Email Activation and Forgot Password/Reset Password :** Celery + Redis
+* **Docs:** Swagger 
 
-- **Comments API**
-  - List/Create: `http://localhost:8000/api/comments/`
-  - Retrieve/Update/Delete: `http://localhost:8000/api/comments/{id}/`
-  To create a reply to a comment, use the following:
-	HTTP Method: POST
-	URL: /api/comments/
-	Request Body Example:
-	{
-	  "content": "This is a reply",
-	  "parent": 1
-	}
 
-- **Project Reports API**
-  - List/Create: `http://localhost:8000/api/project-reports/`
-  - Retrieve/Update/Delete: `http://localhost:8000/api/project-reports/{id}/`
-  - By Project: `http://localhost:8000/api/project-reports/by-project/{project_id}/`
+---
 
-- **Comment Reports API**
-  - List/Create: `http://localhost:8000/api/comment-reports/`
-  - Retrieve/Update/Delete: `http://localhost:8000/api/comment-reports/{id}/`
+## How to Set It Up
 
-- **Donations API**
-  - List/Create: `http://localhost:8000/api/donation/`
-  - Retrieve/Update/Delete: `http://localhost:8000/api/donation/{id}/`
+1. **Clone the project:**
 
-- **Categories API**
-  - List/Create: `http://localhost:8000/api/categories/`
-  - Retrieve/Update/Delete: `http://localhost:8000/api/categories/{id}/`
+```bash
+git clone git@github.com:Abdhsrag/charity.git
+cd charity
+```
 
-- **Project Tags API**
-  - List/Create: `http://localhost:8000/api/project_tags/`
-  - Retrieve/Update/Delete: `http://localhost:8000/api/project_tags/{id}/`
+2. **Create a virtual environment and install requirements:**
 
-- **User Donations API**
-  - List: `http://localhost:8000/api/donation/user/{id}/`
+```bash
+python -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+```
 
-- **User Projects API**
-  - List: `http://localhost:8000/api/project/project/user/{id}/`
- 
-- **Project Donations API**
-  - List: `http://localhost:8000/api/donation/by-project/{id}/`
+3. **Set up PostgreSQL:**
+
+* Create a database named `charity_db`
+* Make sure your DB settings in `settings.py` match
+
+4. **Apply migrations and create a superuser:**
+
+```bash
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+5. **Run Redis and Celery:**
+
+```bash
+redis-server
+celery -A charity worker --loglevel=info
+```
+
+### What Redis & Celery Do
+
+* **Redis** is used as a message broker.
+* **Celery** handles background tasks like sending email activation links or processing long-running tasks asynchronously.
+
+These tools help improve performance and user experience by offloading time-consuming operations.
+
+6. **Start the Django server:**
+
+```bash
+python manage.py runserver
+```
+
+---
+
+## API Documentation
+
+Once running, open:
+
+```
+http://127.0.0.1:8000/swagger/
+```
+
+---
+
+## ER-Diagram & Mapping & Charity.postman_collection
+
+* `mapping.pdf`: Table/database design
+* `D_porject_ERD.drawio.png`: Database diagram (ERD)
+* Draw.io file: D_porject_ERD.drawio 
+Draw.io link: https://app.diagrams.net
+* `Charity.postman_collection.json`: Postman API requests collection to test all endpoints easily
+
+---
+
