@@ -1,0 +1,2001 @@
+{
+	"info": {
+		"_postman_id": "f7ba0be4-f6c6-46af-8f44-1a15f176139f",
+		"name": "Charity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45189417",
+		"_collection_link": "https://abdelrahmanmohamedosama.postman.co/workspace/Abdelrahman-Mohamed-Osama's-Wor~66fcd8e1-7b9f-40f8-89e5-ab26f4af54a0/collection/45189417-f7ba0be4-f6c6-46af-8f44-1a15f176139f?action=share&source=collection_link&creator=45189417"
+	},
+	"item": [
+		{
+			"name": "register users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"Fname\": \"Alaa\",\n  \"Lname\": \"User\",\n  \"Email\": \"3la2.a7med41@gmail.com\",\n  \"Mphone\": \"123456789\",\n  \"Pass\": \"StrongPass123!\",\n  \"confirm_password\": \"StrongPass123!\",\n  \"Type\": \"donor\",\n  \"Bdate\": \"2000-01-01\",\n  \"Facebook_url\": \"https://facebook.com/testuser\",\n  \"Country\": \"Egypt\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"3la2.a7med41@gmail.com\",\n  \"password\": \"StrongPass123!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "forget password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"3la2.a7med41@gmail.com\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/request-reset-password/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"request-reset-password",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"new_password\": \"NewSecurePassword123!\",\n  \"confirm_password\": \"NewSecurePassword123!\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/reset-password/MTI/cqji38-83fc6c3ae975d2dddf9b4dad91d42ad7/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"reset-password",
+						"MTI",
+						"cqji38-83fc6c3ae975d2dddf9b4dad91d42ad7",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "activation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/activate/Mg/xLr85ZoIw6_S2kahiwYbekV7c-w/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"activate",
+						"Mg",
+						"xLr85ZoIw6_S2kahiwYbekV7c-w",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create report",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Initial evaluation complete.\",\n  \"date\": \"2025-05-26\",\n  \"user_id\": 1,\n  \"project_id\": 3\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project-reports/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project-reports",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all reports",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Initial evaluation complete.\",\n  \"date\": \"2025-05-26\",\n  \"user_id\": 1,\n  \"project_id\": 3\n}\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project-reports/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project-reports",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updated in report on project",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Initial evaluation complete. edited\",\n  \"date\": \"2025-05-26\",\n  \"user_id\": 1,\n  \"project_id\": 3\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project-reports/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project-reports",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete project report",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Initial evaluation complete. edited\",\n  \"date\": \"2025-05-26\",\n  \"user_id\": 1,\n  \"project_id\": 3\n}\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project-reports/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project-reports",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create comment report",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Initial evaluation complete. comment\",\n  \"date\": \"2025-05-26\",\n  \"user_id\": 1,\n  \"comment_id\": 3\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/comment-reports/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comment-reports",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all comments report",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Initial evaluation complete. comment\",\n  \"date\": \"2025-05-26\",\n  \"user_id\": 1,\n  \"comment_id\": 3\n}\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/comment-reports/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comment-reports",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit comment report",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Initial evaluation complete. comment edited\",\n  \"date\": \"2025-05-26\",\n  \"user_id\": 1,\n  \"comment_id\": 3\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/comment-reports/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comment-reports",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete comment report",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Initial evaluation complete. comment\",\n  \"date\": \"2025-05-26\",\n  \"user_id\": 1,\n  \"comment_id\": 3\n}\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/comment-reports/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comment-reports",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all report of specific comment and their count",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Initial evaluation complete. comment\",\n  \"date\": \"2025-05-26\",\n  \"user_id\": 1,\n  \"comment_id\": 3\n}\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/comment-reports/by-comment/3/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comment-reports",
+						"by-comment",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all reports of specific project and their count",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Initial evaluation complete. comment\",\n  \"date\": \"2025-05-26\",\n  \"user_id\": 1,\n  \"comment_id\": 3\n}\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project/allfeatured/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"allfeatured",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all featured projects",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4ODk2Mjg5LCJpYXQiOjE3NDg4OTU5ODksImp0aSI6ImY2NWIyMDU3MzVjMTRjNDNiZGJmNjMxM2ZhM2ZmM2Y0IiwidXNlcl9pZCI6MSwiZW1haWwiOiIzbGEyLmE3bWVkNDFAZ21haWwuY29tIiwicm9sZSI6ImRvbm9yIn0.1R6bhcn5HMMYi4JSdVePvgAfc6XH9R13cRDU4ZFKzxk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project/project/allfeatured/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						"allfeatured",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get 5 featured projects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project/fivefeatured/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"fivefeatured",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add donation to project",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": \"1300.00\",\n  \"date\": \"2025-05-29T10:00:00Z\",\n  \"user_id\": 1,\n  \"project_id\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/donation/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"donation",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all donations",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": \"1300.00\",\n  \"date\": \"2025-05-29T10:00:00Z\",\n  \"user_id\": 1,\n  \"project_id\": 2\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/donation/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"donation",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all donations for specific project",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": \"1300.00\",\n  \"date\": \"2025-05-29T10:00:00Z\",\n  \"user_id\": 1,\n  \"project_id\": 2\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/donation/by-project/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"donation",
+						"by-project",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show  specific image of project",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/media/project_images/media/one.jpg/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"media",
+						"project_images",
+						"media",
+						"one.jpg",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Project details, its images, ava rate, similar projects (same category)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project/1/details/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"1",
+						"details",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjcxNzA4LCJpYXQiOjE3NDg2NzE0MDgsImp0aSI6ImE4MDlhNDljOThhODRkOTQ4MTU1MGQ2NGUyYzZiMmM4IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.kGnoAsC0T9Upyfj-6ErEB-61YyazN98N-m09oMs6cQE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/categories/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categories",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjcxNzA4LCJpYXQiOjE3NDg2NzE0MDgsImp0aSI6ImE4MDlhNDljOThhODRkOTQ4MTU1MGQ2NGUyYzZiMmM4IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.kGnoAsC0T9Upyfj-6ErEB-61YyazN98N-m09oMs6cQE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "free gaza",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "save gaza",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categories",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "free gaza",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "save gaza",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all projects in category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjcxNzA4LCJpYXQiOjE3NDg2NzE0MDgsImp0aSI6ImE4MDlhNDljOThhODRkOTQ4MTU1MGQ2NGUyYzZiMmM4IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.kGnoAsC0T9Upyfj-6ErEB-61YyazN98N-m09oMs6cQE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/categories/1/projects/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categories",
+						"1",
+						"projects",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjcxNzA4LCJpYXQiOjE3NDg2NzE0MDgsImp0aSI6ImE4MDlhNDljOThhODRkOTQ4MTU1MGQ2NGUyYzZiMmM4IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.kGnoAsC0T9Upyfj-6ErEB-61YyazN98N-m09oMs6cQE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "free gaza now",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "save gaza",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/categories/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categories",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all comments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjcxNzA4LCJpYXQiOjE3NDg2NzE0MDgsImp0aSI6ImE4MDlhNDljOThhODRkOTQ4MTU1MGQ2NGUyYzZiMmM4IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.kGnoAsC0T9Upyfj-6ErEB-61YyazN98N-m09oMs6cQE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/comments/top_level/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comments",
+						"top_level",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "only comments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjcxNzA4LCJpYXQiOjE3NDg2NzE0MDgsImp0aSI6ImE4MDlhNDljOThhODRkOTQ4MTU1MGQ2NGUyYzZiMmM4IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.kGnoAsC0T9Upyfj-6ErEB-61YyazN98N-m09oMs6cQE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/comments/top_level/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comments",
+						"top_level",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "only replays",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjcxNzA4LCJpYXQiOjE3NDg2NzE0MDgsImp0aSI6ImE4MDlhNDljOThhODRkOTQ4MTU1MGQ2NGUyYzZiMmM4IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.kGnoAsC0T9Upyfj-6ErEB-61YyazN98N-m09oMs6cQE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/comments/replies/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comments",
+						"replies",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "comments in a project",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjcxNzA4LCJpYXQiOjE3NDg2NzE0MDgsImp0aSI6ImE4MDlhNDljOThhODRkOTQ4MTU1MGQ2NGUyYzZiMmM4IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.kGnoAsC0T9Upyfj-6ErEB-61YyazN98N-m09oMs6cQE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/comments/by-project/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comments",
+						"by-project",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "comment by user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjczMDEyLCJpYXQiOjE3NDg2NzI3MTIsImp0aSI6Ijg5ODQ1ZGQ1MDRjNzRiMDA4ZTBmYzY2NDFiZTI1NjJlIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.sjz6DJGUYfldAlmBkykbGOe7_IEppwX1dQk1CrDl47k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/comments/by-user/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comments",
+						"by-user",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create comments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjczMDEyLCJpYXQiOjE3NDg2NzI3MTIsImp0aSI6Ijg5ODQ1ZGQ1MDRjNzRiMDA4ZTBmYzY2NDFiZTI1NjJlIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.sjz6DJGUYfldAlmBkykbGOe7_IEppwX1dQk1CrDl47k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "content",
+							"value": "hello",
+							"type": "text"
+						},
+						{
+							"key": "project_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/comments/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comments",
+						""
+					],
+					"query": [
+						{
+							"key": "content",
+							"value": "hello",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create replay",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjczMDEyLCJpYXQiOjE3NDg2NzI3MTIsImp0aSI6Ijg5ODQ1ZGQ1MDRjNzRiMDA4ZTBmYzY2NDFiZTI1NjJlIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.sjz6DJGUYfldAlmBkykbGOe7_IEppwX1dQk1CrDl47k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "content",
+							"value": "hello",
+							"type": "text"
+						},
+						{
+							"key": "project_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "parent",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/comments/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comments",
+						""
+					],
+					"query": [
+						{
+							"key": "content",
+							"value": "hello",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "latest five projects",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjczMDEyLCJpYXQiOjE3NDg2NzI3MTIsImp0aSI6Ijg5ODQ1ZGQ1MDRjNzRiMDA4ZTBmYzY2NDFiZTI1NjJlIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.sjz6DJGUYfldAlmBkykbGOe7_IEppwX1dQk1CrDl47k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/project/project/projects_latest/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						"projects_latest",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add project imgs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjczMDEyLCJpYXQiOjE3NDg2NzI3MTIsImp0aSI6Ijg5ODQ1ZGQ1MDRjNzRiMDA4ZTBmYzY2NDFiZTI1NjJlIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.sjz6DJGUYfldAlmBkykbGOe7_IEppwX1dQk1CrDl47k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "url",
+							"type": "file",
+							"src": "/home/abdelrahman/Pictures/Screenshots/Screenshot from 2025-05-30 18-31-16.png"
+						},
+						{
+							"key": "project_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/project-images/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project-images",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get projects imgs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjczMDEyLCJpYXQiOjE3NDg2NzI3MTIsImp0aSI6Ijg5ODQ1ZGQ1MDRjNzRiMDA4ZTBmYzY2NDFiZTI1NjJlIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.sjz6DJGUYfldAlmBkykbGOe7_IEppwX1dQk1CrDl47k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/project-images/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project-images",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get project imgs by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjcxNzA4LCJpYXQiOjE3NDg2NzE0MDgsImp0aSI6ImE4MDlhNDljOThhODRkOTQ4MTU1MGQ2NGUyYzZiMmM4IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.kGnoAsC0T9Upyfj-6ErEB-61YyazN98N-m09oMs6cQE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/project-images/10/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project-images",
+						"10",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update project imgs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjcxNzA4LCJpYXQiOjE3NDg2NzE0MDgsImp0aSI6ImE4MDlhNDljOThhODRkOTQ4MTU1MGQ2NGUyYzZiMmM4IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.kGnoAsC0T9Upyfj-6ErEB-61YyazN98N-m09oMs6cQE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "url",
+							"type": "file",
+							"src": "/home/abdelrahman/Downloads/matirals/Screenshot from 2025-05-14 13-51-59.png"
+						},
+						{
+							"key": "project_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/project-images/10/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project-images",
+						"10",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get imgs for one project",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjczMDEyLCJpYXQiOjE3NDg2NzI3MTIsImp0aSI6Ijg5ODQ1ZGQ1MDRjNzRiMDA4ZTBmYzY2NDFiZTI1NjJlIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.sjz6DJGUYfldAlmBkykbGOe7_IEppwX1dQk1CrDl47k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/project-images/for-project/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project-images",
+						"for-project",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search by title",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjcyMTY5LCJpYXQiOjE3NDg2NzE4NjksImp0aSI6ImE0MzBlMzAwYTQ3NjRiYTZiZGNjNjhmMmVkNTkzOWNjIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.Mq-X9bUhaCNJv20Vwio9zepOkKpnAI5vqYW3vJGMGhk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/project/project/search/?title=gaza",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "gaza"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search by tag",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjcyMTY5LCJpYXQiOjE3NDg2NzE4NjksImp0aSI6ImE0MzBlMzAwYTQ3NjRiYTZiZGNjNjhmMmVkNTkzOWNjIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.Mq-X9bUhaCNJv20Vwio9zepOkKpnAI5vqYW3vJGMGhk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/project/project/search/?tag=gaza",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "tag",
+							"value": "gaza"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search by both",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjcyMTY5LCJpYXQiOjE3NDg2NzE4NjksImp0aSI6ImE0MzBlMzAwYTQ3NjRiYTZiZGNjNjhmMmVkNTkzOWNjIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.Mq-X9bUhaCNJv20Vwio9zepOkKpnAI5vqYW3vJGMGhk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/project/project/search/?title=gaza&tag=gaza",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "gaza"
+						},
+						{
+							"key": "tag",
+							"value": "gaza"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all projects",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4OTM0MzUzLCJpYXQiOjE3NDg5MzQwNTMsImp0aSI6Ijg4Y2QzOGRiYWE0MzQ4ZTlhMmViYTcwOTkwOWQ5ODRkIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.zefeHy_3-j3XpPwtbajc8ogPOSopPGiSZDFZSpSRA2A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project/project/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create a project",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4OTM0MzUzLCJpYXQiOjE3NDg5MzQwNTMsImp0aSI6Ijg4Y2QzOGRiYWE0MzQ4ZTlhMmViYTcwOTkwOWQ5ODRkIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.zefeHy_3-j3XpPwtbajc8ogPOSopPGiSZDFZSpSRA2A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "gaza save",
+							"type": "text"
+						},
+						{
+							"key": "details",
+							"value": "save gaza",
+							"type": "text"
+						},
+						{
+							"key": "target",
+							"value": "250000",
+							"type": "text"
+						},
+						{
+							"key": "E_time",
+							"value": "2025-03-03",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project/project/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user's projects",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4OTM0NjkyLCJpYXQiOjE3NDg5MzQzOTIsImp0aSI6ImJmMDA4Njg2NTg0YzRjMGFiYjU1ZjdjMDQ4NjViYTYwIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.KppOR-XQSyE1lE18HdmxIqZljSwASxVZMNpqMDKuh_E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project/project/user/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						"user",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get latest five projects",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4OTM0NjkyLCJpYXQiOjE3NDg5MzQzOTIsImp0aSI6ImJmMDA4Njg2NTg0YzRjMGFiYjU1ZjdjMDQ4NjViYTYwIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.KppOR-XQSyE1lE18HdmxIqZljSwASxVZMNpqMDKuh_E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project/project/projects_latest/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						"projects_latest",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancel project",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4OTM0NjkyLCJpYXQiOjE3NDg5MzQzOTIsImp0aSI6ImJmMDA4Njg2NTg0YzRjMGFiYjU1ZjdjMDQ4NjViYTYwIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.KppOR-XQSyE1lE18HdmxIqZljSwASxVZMNpqMDKuh_E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project/project/9/cancel/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						"9",
+						"cancel",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get five featuerd projects",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4OTM0NjkyLCJpYXQiOjE3NDg5MzQzOTIsImp0aSI6ImJmMDA4Njg2NTg0YzRjMGFiYjU1ZjdjMDQ4NjViYTYwIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.KppOR-XQSyE1lE18HdmxIqZljSwASxVZMNpqMDKuh_E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project/project/fivefeatured",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						"fivefeatured"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all featuerd projects",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4OTM1MDQ3LCJpYXQiOjE3NDg5MzQ3NDcsImp0aSI6ImNkOWRjNjM4MGViYTQ4NTE4YjRhZTE2ZTMyM2E1YWM3IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.rw40MjUNVbH4oqui41By1xuNOsPijHalqbTCCOyl4lI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project/project/allfeatured/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						"allfeatured",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get project details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4OTM1NTE1LCJpYXQiOjE3NDg5MzUyMTUsImp0aSI6ImExZTRjY2E5MGEyMzQwNzQ5MTg2NTAxOWE0MDU2OWY0IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.O7OBdFCgJIm_qfILJir_YsevQCCJSxjj5ZtYkEmOIJ8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project/project/9/details",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						"9",
+						"details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get project with same tag",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4OTM1NTE1LCJpYXQiOjE3NDg5MzUyMTUsImp0aSI6ImExZTRjY2E5MGEyMzQwNzQ5MTg2NTAxOWE0MDU2OWY0IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.O7OBdFCgJIm_qfILJir_YsevQCCJSxjj5ZtYkEmOIJ8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/project/project/searchtag?tag=gaza",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						"searchtag"
+					],
+					"query": [
+						{
+							"key": "tag",
+							"value": "gaza"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get top rated projects",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4OTM2MjE3LCJpYXQiOjE3NDg5MzU5MTcsImp0aSI6IjI5MTU4NTY3ZTQ5MzQxMmY4YWZmYWEyZDcxMjIxMjU3IiwidXNlcl9pZCI6MSwiZW1haWwiOiJhYmRoc3JhZ0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifQ.M8vRBku2s4b1bG-auMGfwfo6ZthxLtd-IIRsxLC06-4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/project/project/top_rated/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"project",
+						"project",
+						"top_rated",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
