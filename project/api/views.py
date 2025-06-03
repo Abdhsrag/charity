@@ -135,3 +135,9 @@ class ProjectViewSet(viewsets.ModelViewSet):
         projects = Project.objects.filter(id__in=project_ids)
         serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data)
+
+    @action(detail=False, methods=['get'], url_path='top_rated')
+    def top_rated_projects(self, request):
+        projects = Project.objects.annotate(avg_rating=Avg('rates__value')).order_by('-avg_rating')[:5]
+        serializer = self.get_serializer(projects, many=True)
+        return Response(serializer.data)
