@@ -66,14 +66,33 @@ python manage.py runserver
 
 
 ---
+## ER-Diagram, Mapping, and Postman Collection
 
-## ER-Diagram & Mapping & Charity.postman_collection
+---
 
-* `mapping.pdf`: Table/database design
-* `D_porject_ERD.drawio.png`: Database diagram (ERD)
-* Draw.io file: D_porject_ERD.drawio 
-Draw.io link: https://app.diagrams.net
-* `Charity.postman_collection.json`: Postman API requests collection to test all endpoints easily
+### 📊 Database Design
+
+- [📄 mapping.pdf](./ERD-Mapping-Postman.Collection/mapping.pdf): Table/database design
+
+---
+
+### 🖼 ER Diagram
+
+Visual Entity Relationship Diagram:  
+![ERD](./ERD-Mapping-Postman.Collection/D_porject_ERD.drawio.png)
+
+---
+
+### 🧩 Draw.io File
+
+Edit or view the ER diagram using Draw.io:  
+[Open D_porject_ERD.drawio](./ERD-Mapping-Postman.Collection/D_porject_ERD.drawio) with [Draw.io](https://app.diagrams.net)
+
+---
+
+### 🧪 API Testing
+
+- [📬 Charity.postman_collection.json](./ERD-Mapping-Postman.Collection/Charity.postman_collection.json): Postman collection for testing all API endpoints
 
 ---
 
