@@ -86,13 +86,13 @@ Visual Entity Relationship Diagram:
 ### 🧩 Draw.io File
 
 Edit or view the ER diagram using Draw.io:  
-[Open D_porject_ERD.drawio](./ERD-Mapping-Postman.Collection/D_porject_ERD.drawio) with [Draw.io](https://app.diagrams.net)
+[Open D_porject_ERD.drawio](./ERD-Mapping-Postman.Collection/D__ERD.drawio) with [Draw.io](https://app.diagrams.net)
 
 ---
 
 ### 🧪 API Testing
 
-- [📬 Charity.postman_collection.json](./ERD-Mapping-Postman.Collection/Charity.postman_collection.json): Postman collection for testing all API endpoints
+- [📬 Charity.postman_collection.json](./ERD-Mapping-Postman.Collection/Charity.postmancollection.json): Postman collection for testing all API endpoints
 
 ---
 
