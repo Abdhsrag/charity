@@ -64,15 +64,6 @@ These tools help improve performance and user experience by offloading time-cons
 python manage.py runserver
 ```
 
----
-
-## API Documentation
-
-Once running, open:
-
-```
-http://127.0.0.1:8000/swagger/
-```
 
 ---
 
