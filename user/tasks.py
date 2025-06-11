@@ -5,7 +5,8 @@ from django.conf import settings
 @shared_task
 def send_verification_email(email, uid, token):
     subject = 'Activate your Charity account'
-    activation_link = f'http://127.0.0.1:8000/api/user/activate/{uid}/{token}/'
+    # activation_link = f'http://127.0.0.1:8000/api/user/activate/{uid}/{token}/'
+    activation_link = f'http://localhost:3000/activate/{uid}/{token}'
 
     message = (
         f"Hi,\n\n"

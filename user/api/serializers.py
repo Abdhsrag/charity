@@ -12,9 +12,6 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
-        extra_kwargs = {
-            'is_staff': {'read_only': True}
-        }
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -55,13 +52,23 @@ class LoginSerializer(serializers.Serializer):
     password = serializers.CharField(write_only=True)
 
     def validate(self, attrs):
-        user = authenticate(email=attrs['email'], password=attrs['password'])
-        if not user:
-            raise serializers.ValidationError("Invalid email or password.")
+        email = attrs.get('email')
+        password = attrs.get('password')
+
+        try:
+            user = User.objects.get(email__iexact=email)
+        except User.DoesNotExist:
+            raise serializers.ValidationError({"detail": "Invalid email or password."})
+
+        if not user.check_password(password):
+            raise serializers.ValidationError({"detail": "Invalid email or password."})
+
         if not user.is_active:
-            raise serializers.ValidationError("Account is not activated.")
+            raise serializers.ValidationError({"detail": "Please activate your account before logging in."})
+
         attrs['user'] = user
         return attrs
+
 
 
 class RequestPasswordResetSerializer(serializers.Serializer):

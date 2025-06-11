@@ -41,8 +41,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     facebook_url = models.TextField(default=None, null=True)
     country = models.CharField(max_length=100)
 
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
     last_login = models.DateTimeField(default=now)
 
     USERNAME_FIELD = 'email'

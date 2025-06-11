@@ -23,6 +23,11 @@ from user.tasks import send_verification_email
 import secrets
 
 
+from rest_framework.permissions import IsAuthenticated
+
+from user.models import User
+
+
 # Utility to generate JWT tokens with custom claims
 def get_tokens_for_user(user):
     refresh = RefreshToken.for_user(user)
@@ -42,19 +47,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 # User Registration View
-
-    def get_queryset(self):
-        return User.objects.filter(is_staff=True)
-
-    def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
-        instance.is_staff = False
-        instance.save()
-        return Response({"detail": "User deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
-
-
-
-
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
     queryset = User.objects.all()
@@ -66,7 +58,6 @@ class RegisterView(generics.CreateAPIView):
         token = secrets.token_urlsafe(20)
         send_verification_email.delay(user.email, uid, token)
 
-        send_verification_email.delay(user.Email, uid, token)
 
 # Account Activation View
 class ActivateUserView(APIView):
@@ -82,7 +73,28 @@ class ActivateUserView(APIView):
         user.is_active = True
         user.save()
         return Response({"detail": "Account activated successfully."})
+# user.api.views.py
 
+# In views.py
+
+class ResendActivationEmailView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        email = request.data.get('email')
+        try:
+            user = User.objects.get(email=email)
+            if user.is_active:
+                return Response({"detail": "Account is already active."}, status=status.HTTP_400_BAD_REQUEST)
+
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            token = secrets.token_urlsafe(20)
+
+            send_verification_email.delay(user.email, uid, token)
+
+            return Response({"detail": "Activation email has been resent."}, status=status.HTTP_200_OK)
+        except User.DoesNotExist:
+            return Response({"detail": "User not found."}, status=status.HTTP_404_NOT_FOUND)
 
 # Login View
 class LoginView(APIView):
@@ -110,8 +122,8 @@ class RequestPasswordResetView(APIView):
 
         uid = urlsafe_base64_encode(force_bytes(user.pk))
         token = default_token_generator.make_token(user)
-        reset_link = f"http://127.0.0.1:8000/api/user/reset-password/{uid}/{token}/"
-
+        # reset_link = f"http://127.0.0.1:8000/api/user/reset-password/{uid}/{token}/"
+        reset_link = f"http://localhost:3000/reset-password/{uid}/{token}"
         send_mail(
             subject='Reset your password',
             message=f"Click the link to reset your password:\n\n{reset_link}",
@@ -144,3 +156,27 @@ class PasswordResetConfirmView(APIView):
         user.save()
 
         return Response({'detail': 'Password has been reset successfully.'}, status=status.HTTP_200_OK)
+
+
+class SoftDeleteUserView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request, pk):
+        try:
+            user = User.objects.get(pk=pk)
+            
+            # Optional: check if user is deleting their own account
+            if request.user != user:
+                return Response({"detail": "You cannot delete another user's account."},
+                                status=status.HTTP_403_FORBIDDEN)
+
+            # Soft delete: deactivate
+            user.is_active = False
+            user.save()
+
+            return Response({"detail": "Account deactivated successfully."},
+                            status=status.HTTP_200_OK)
+
+        except User.DoesNotExist:
+            return Response({"detail": "User not found."},
+                            status=status.HTTP_404_NOT_FOUND)    

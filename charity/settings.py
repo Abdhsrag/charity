@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
+   
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,15 +52,17 @@ INSTALLED_APPS = [
     'project_tag',
     'project.apps.ProjectConfig',
     'rate.apps.RateConfig',
-        'django_celery_results',
+    'django_celery_results',
 
-
+ 'corsheaders',
 ]
 
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    # "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    # "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),  
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": False,
     "UPDATE_LAST_LOGIN": False,
@@ -105,6 +107,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+      'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'charity.urls'
@@ -135,7 +138,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'charity_db',
         'USER': 'postgres',
-        'PASSWORD': '123',
+        'PASSWORD': '1',
         'HOST': 'localhost',
     }
 }
@@ -204,3 +207,6 @@ EMAIL_HOST_PASSWORD = 'dibh qjvr uftc qsyd'
 
 
 AUTH_USER_MODEL = 'user.User'
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
